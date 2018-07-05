@@ -21,7 +21,7 @@ app.get('/doctors', (req, res) => {
   });
 });
 
-app.get('doctors/:areaOfPractice', (req, res) => {
+app.get('/doctors/:areaOfPractice', (req, res) => {
   console.log('id!!!', req.params.areaOfPractice)
   db.findSimilarDocs(req.params.areaOfPractice, (err, results) => {
     if (err) {
