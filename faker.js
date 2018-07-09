@@ -50,7 +50,7 @@ var stream = fs.createWriteStream('./fake-data.json');
 let isReady = true;
 isReady = stream.write('[');
 
-let createDoctors = (n = 1e3) => { 
+let createDoctors = (n = 200) => { 
   while (n > -1 && isReady) {
     if (n === 0) {
       isReady = stream.write(fakeDoctors());
@@ -59,7 +59,6 @@ let createDoctors = (n = 1e3) => {
       isReady = stream.write(`${fakeDoctors()},\n`);
     }
     n -= 1;
-    console.log(n);
   }
   stream.once('drain', () => {
     isReady = stream.write('');

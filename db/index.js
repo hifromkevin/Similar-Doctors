@@ -29,7 +29,7 @@ const findAll = (callback) => {
 const findSimilarDocs = (area, callback) => {
   var q = {};
   q['areaOfPractice'] = area;
-  DoctorModel.find(q).exec(callback); //.sort('+averageReview').exec(callback);
+  DoctorModel.find(q).sort({ 'averageReview': -1 }).exec(callback); //.sort('+averageReview').exec(callback);
 }
 
 
