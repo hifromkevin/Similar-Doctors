@@ -12,8 +12,6 @@ export default class App extends Component {
       rendered: false,
       doctors: []
     }
-
-    this.findSimilarDoctorsByAreaOfPractice = this.findSimilarDoctorsByAreaOfPractice.bind(this);
   }
 
   componentWillMount() {
@@ -33,29 +31,19 @@ export default class App extends Component {
       });
   }
 
-
-  findSimilarDoctorsByAreaOfPractice(practiceArea) {
-    axios.get(`/doctors/${practiceArea}`)
-      .then(res => {
-        console.log(res.data);
-        return res.data;
-      })
-      .catch(err => {
-        console.log(`Failed to find ${practiceArea}`, err);
-      });
-
-  }
-
   render() {
     if(this.state.rendered) {
       return (
         <div>
-        {this.findSimilarDoctorsByAreaOfPractice('Primary Care')}
           <Menu />
           <div className="container">
             <div className="row">
               {this.state.doctors.map((doctor, index) => {
-                return <Doctor doctor={doctor} findSimilarDoctorsByAreaOfPractice={this.findSimilarDoctorsByAreaOfPractice} key={index} />
+                return <Doctor 
+                          doctor={doctor} 
+                          similarDoctors={this.state.similarDoctors}
+                          key={index}
+                        />
               })
               }
             </div>
