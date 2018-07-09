@@ -2,3 +2,4 @@ fake-data.json
 .DS_Store
 package-lock.json
 node_modules
+client/dist/bundle.js
