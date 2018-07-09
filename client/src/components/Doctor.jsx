@@ -16,7 +16,15 @@ export default class Doctor extends Component {
   learnMore(id, practice) {
     document.querySelector(`.bio_${id}`).classList.toggle('hide');
     document.querySelector(`.similar_${id}`).classList.toggle('hide');
+    document.querySelector('.bio_button').classList.toggle('hide');
     this.findSimilarDoctors(practice);
+  }
+
+  showLess(id, practice) {
+    document.querySelector(`.bio_${id}`).classList.toggle('hide');
+    document.querySelector(`.similar_${id}`).classList.toggle('hide');
+    document.querySelector('.bio_button').classList.toggle('hide');
+
   }
 
   findSimilarDoctors(practiceArea) {
@@ -51,6 +59,7 @@ export default class Doctor extends Component {
             {this.props.doctor.zipCode}</p>
             <p className="doctor__phone">{this.props.doctor.phoneNumber}</p>
           </div>
+           <button onClick={() => {this.showLess(this.props.doctor._id, this.props.doctor.areaOfPractice)}}>Show Less</button>
         </div>
 
         <p className="doctor__rating">Rating: <strong>{this.props.doctor.averageReview}/5</strong> out of <strong>{this.props.doctor.numberOfReviews}</strong> reviews</p>

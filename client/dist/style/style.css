@@ -17,13 +17,17 @@ p {
 }
 
 button {
-  font-size: 0.7em;
+  font-size: 0.9em;
   border: 0px;
   border-radius: 15px;
   padding: 1px 10px;
   color: white;
   background-color: #9bc4e2;
   box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.3);
+}
+
+button:focus {
+  outline: none;
 }
 
 /***********
@@ -66,8 +70,9 @@ button {
 }
 
 .doctor__name {
-  font-size: 1.1em;
-  fong-weight: bold;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin: 2% 0;
 }
 
 .doctor__catchPhrase {
